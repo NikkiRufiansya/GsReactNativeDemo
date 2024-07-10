@@ -1,0 +1,705 @@
+#-addconfigurationdebugging
+#-addprofiling
+
+#### RASP CONFIGURATION ####
+-raspchecks emulator, root
+-raspcontinueon *
+
+
+#### CALLBACK RASP ####
+-raspcallback emulator class com.rmldemo.guardsquare.MainApplication {
+    public static void emulator(long);
+}
+-raspcallback root class com.rmldemo.guardsquare.MainApplication {
+    public static void root(long);
+}
+
+
+
+#### KEEP CLASS ######
+-keepresourcexmlelements "manifest/application/provider/meta-data@name=androidx.emoji2.text.EmojiCompatInitializer"
+-keepresourcexmlelements "manifest/application/provider/meta-data@name=androidx.lifecycle.ProcessLifecycleInitializer"
+-keepresourcexmlelements "manifest/application/meta-data@name=com.facebook.soloader.enabled"
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate hermes
+-keepresourcefiles **/libhermes.so
+-keep,includedescriptorclasses class com.facebook.jni.HybridData$Destructor {
+    *** deleteNative(long);
+}
+-keep,includedescriptorclasses class com.facebook.jni.NativeRunnable {
+    *** run();
+}
+-keep,includedescriptorclasses class com.facebook.jni.ThreadScopeSupport {
+    *** runStdFunctionImpl(long);
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate hermes_executor
+-keepresourcefiles **/libhermes_executor.so
+-keep class com.facebook.hermes.reactexecutor.HermesExecutor
+-keep,includedescriptorclasses class com.facebook.hermes.reactexecutor.HermesExecutor {
+    *** initHybrid(boolean,java.lang.String,long);
+}
+-keep,includedescriptorclasses class com.facebook.hermes.reactexecutor.HermesExecutor {
+    *** initHybridDefaultConfig(boolean,java.lang.String);
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate fbjni
+-keepresourcefiles **/libfbjni.so
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate reactnativejni
+-keepresourcefiles **/libreactnativejni.so
+-keep,includedescriptorclasses class com.facebook.react.bridge.ProxyJavaScriptExecutor {
+    *** initHybrid(com.facebook.react.bridge.JavaJSExecutor);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** initializeBridge(com.facebook.react.bridge.CatalystInstanceImpl$InstanceCallback,com.facebook.react.bridge.JavaScriptExecutor,com.facebook.react.bridge.queue.MessageQueueThread,com.facebook.react.bridge.queue.MessageQueueThread,java.util.Collection,java.util.Collection);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniExtendNativeModules(java.util.Collection,java.util.Collection);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniSetSourceURL(java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniRegisterSegment(int,java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniLoadScriptFromAssets(android.content.res.AssetManager,java.lang.String,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniLoadScriptFromFile(java.lang.String,java.lang.String,boolean);
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate reactnativejni
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniCallJSFunction(java.lang.String,java.lang.String,com.facebook.react.bridge.NativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniCallJSCallback(int,com.facebook.react.bridge.NativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** setGlobalVariable(java.lang.String,java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** getJavaScriptContext();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** getJSCallInvokerHolder();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** getNativeMethodCallInvokerHolder();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** jniHandleMemoryPressure(int);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** getRuntimeExecutor();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl {
+    *** getRuntimeScheduler();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CxxModuleWrapperBase {
+    *** getName();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CxxCallbackImpl {
+    *** nativeInvoke(com.facebook.react.bridge.NativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.NativeArray {
+    *** toString();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReadableNativeArray {
+    *** importArray();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReadableNativeArray {
+    *** importTypeArray();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushNull();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushBoolean(boolean);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushDouble(double);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushInt(int);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushString(java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushNativeArray(com.facebook.react.bridge.ReadableNativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeArray {
+    *** pushNativeMap(com.facebook.react.bridge.ReadableNativeMap);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.NativeMap {
+    *** toString();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReadableNativeMap {
+    *** importKeys();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReadableNativeMap {
+    *** importValues();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReadableNativeMap {
+    *** importTypes();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putNull(java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putBoolean(java.lang.String,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putDouble(java.lang.String,double);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putInt(java.lang.String,int);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putString(java.lang.String,java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putNativeArray(java.lang.String,com.facebook.react.bridge.ReadableNativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** putNativeMap(java.lang.String,com.facebook.react.bridge.ReadableNativeMap);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** mergeNativeMap(com.facebook.react.bridge.ReadableNativeMap);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.WritableNativeMap {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReactMarker {
+    *** nativeLogMarker(java.lang.String,long);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.Inspector$LocalConnection {
+    *** sendMessage(java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.Inspector$LocalConnection {
+    *** disconnect();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.Inspector {
+    *** instance();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.Inspector {
+    *** getPagesNative();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.Inspector {
+    *** connectNative(int,com.facebook.react.bridge.Inspector$RemoteConnection);
+}
+-keep,includedescriptorclasses class com.facebook.jni.IteratorHelper {
+    *** hasNext();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.queue.MessageQueueThread {
+    *** isOnThread();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.queue.MessageQueueThread {
+    *** runOnQueue(java.lang.Runnable);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReactMarker {
+    *** logMarker(java.lang.String);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl$InstanceCallback {
+    *** decrementPendingJSCalls();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl$InstanceCallback {
+    *** incrementPendingJSCalls();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.ReactMarker {
+    *** logMarker(java.lang.String,java.lang.String,int);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.JavaModuleWrapper {
+    *** getName();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.JavaModuleWrapper {
+    *** getConstants();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.JavaModuleWrapper {
+    *** getMethodDescriptors();
+}
+-keepclassmembers class com.th3rdwave.safeareacontext.SafeAreaViewShadowNode {
+    <methods>;
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate yoga
+-keepresourcefiles **/libyoga.so
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigNewJNI();
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigFreeJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigSetExperimentalFeatureEnabledJNI(long,int,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigSetUseWebDefaultsJNI(long,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigSetPointScaleFactorJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigSetErrataJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigGetErrataJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGConfigSetLoggerJNI(long,com.facebook.yoga.YogaLogger);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeNewJNI();
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeNewWithConfigJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeFinalizeJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeResetJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeInsertChildJNI(long,long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeSwapChildJNI(long,long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeSetIsReferenceBaselineJNI(long,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeIsReferenceBaselineJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeRemoveAllChildrenJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeRemoveChildJNI(long,long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeCalculateLayoutJNI(long,float,float,long[],com.facebook.yoga.YogaNodeJNIBase[]);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeMarkDirtyJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeIsDirtyJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeCopyStyleJNI(long,long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetDirectionJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetDirectionJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexDirectionJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexDirectionJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetJustifyContentJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetJustifyContentJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetAlignItemsJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetAlignItemsJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetAlignSelfJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetAlignSelfJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetAlignContentJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetAlignContentJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetPositionTypeJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetPositionTypeJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexWrapJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexWrapJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetOverflowJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetOverflowJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetDisplayJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetDisplayJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexGrowJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexGrowJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexShrinkJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexShrinkJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetFlexBasisJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexBasisJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexBasisPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetFlexBasisAutoJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetMarginJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMarginJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMarginPercentJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMarginAutoJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetPaddingJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetPaddingJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetPaddingPercentJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetBorderJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetBorderJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetPositionJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetPositionJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetPositionPercentJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetWidthJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetWidthJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetWidthPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetWidthAutoJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetHeightJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetHeightJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetHeightPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetHeightAutoJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetMinWidthJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMinWidthJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMinWidthPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetMinHeightJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMinHeightJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMinHeightPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetMaxWidthJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMaxWidthJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMaxWidthPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetMaxHeightJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMaxHeightJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetMaxHeightPercentJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetAspectRatioJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetAspectRatioJNI(long,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeSetHasMeasureFuncJNI(long,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleGetGapJNI(long,int);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeStyleSetGapJNI(long,int,float);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeSetHasBaselineFuncJNI(long,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeSetAlwaysFormsContainingBlockJNI(long,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNative {
+    *** jni_YGNodeCloneJNI(long);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.JavaModuleWrapper {
+    *** getModule();
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate reanimated
+-keepresourcefiles **/libreanimated.so
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate turbomodulejsijni
+-keepresourcefiles **/libturbomodulejsijni.so
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate turbomodulejsijni
+-keep,includedescriptorclasses class com.facebook.react.internal.turbomodule.core.TurboModuleManager {
+    *** initHybrid(com.facebook.react.bridge.RuntimeExecutor,com.facebook.react.turbomodule.core.CallInvokerHolderImpl,com.facebook.react.turbomodule.core.NativeMethodCallInvokerHolderImpl,com.facebook.react.internal.turbomodule.core.TurboModuleManagerDelegate);
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.turbomodule.core.TurboModuleManager {
+    *** installJSIBindings(boolean,boolean);
+}
+-keep,includedescriptorclasses class com.facebook.react.CompositeReactPackageTurboModuleManagerDelegate {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.facebook.react.CompositeReactPackageTurboModuleManagerDelegate {
+    *** addTurboModuleManagerDelegate(com.facebook.react.internal.turbomodule.core.TurboModuleManagerDelegate);
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.turbomodule.core.TurboModulePerfLogger {
+    *** jniEnableCppLogging(com.facebook.react.perflogger.NativeModulePerfLogger);
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate reanimated
+-keep,includedescriptorclasses class com.swmansion.reanimated.NativeProxy {
+    *** initHybrid(long,com.facebook.react.turbomodule.core.CallInvokerHolderImpl,com.swmansion.reanimated.AndroidUIScheduler,com.swmansion.reanimated.layoutReanimation.LayoutAnimations,com.facebook.react.bridge.queue.MessageQueueThread,java.lang.String);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** installJSIBindings();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.NativeProxy {
+    *** isAnyHandlerWaitingForEvent(java.lang.String,int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.NativeProxy {
+    *** performOperations();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.AnimationFrameCallback {
+    *** onAnimationFrame(double);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.EventHandler {
+    *** receiveEvent(java.lang.String,int,com.facebook.react.bridge.WritableMap);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.AndroidUIScheduler {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.AndroidUIScheduler {
+    *** triggerUI();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** initHybrid();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** startAnimationForTag(int,int,java.util.Map);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** hasAnimationForTag(int,int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** shouldAnimateExiting(int,boolean);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** clearAnimationConfigForTag(int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** cancelAnimationForTag(int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** isLayoutAnimationEnabled();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** findPrecedingViewTagForTransition(int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** getSharedGroup(int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.SensorSetter {
+    *** sensorSetter(float[],int);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.keyboard.KeyboardWorkletWrapper {
+    *** invoke(int,int);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.queue.MessageQueueThread {
+    *** quitSynchronous();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** getIsReducedMotion();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** registerEventHandler(com.swmansion.reanimated.nativeProxy.EventHandler);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.AndroidUIScheduler {
+    *** scheduleTriggerOnUI();
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.JavaModuleWrapper {
+    *** invoke(int,com.facebook.react.bridge.ReadableNativeArray);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** configureProps(com.facebook.react.bridge.ReadableNativeArray,com.facebook.react.bridge.ReadableNativeArray);
+}
+-keep,includedescriptorclasses class com.facebook.react.bridge.CatalystInstanceImpl$InstanceCallback {
+    *** onBatchComplete();
+}
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate react_featureflagsjni
+-keepresourcefiles **/libreact_featureflagsjni.so
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** override(java.lang.Object);
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** dangerouslyReset();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** commonTestFlag();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** androidEnablePendingFabricTransactions();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** batchRenderingUpdatesInEventLoop();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** destroyFabricSurfacesInReactInstanceManager();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** enableBackgroundExecutor();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** useModernRuntimeScheduler();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** enableMicrotasks();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** enableSpannableBuildingUnification();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** enableCustomDrawOrderFabric();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** enableFixForClippedSubviewsCrash();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** inspectorEnableCxxInspectorPackagerConnection();
+}
+-keep,includedescriptorclasses class com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop {
+    *** inspectorEnableModernCDPRegistry();
+}
+-keep,includedescriptorclasses class com.facebook.yoga.YogaNodeJNIBase {
+    *** measure(float,int,float,int);
+}
+-keepresources drawable/assets_images_rmllogo
+-loadslibrary com.facebook.soloader.nativeloader.SystemDelegate imagepipeline
+-keepresourcefiles **/libimagepipeline.so
+-keep,includedescriptorclasses class com.facebook.imagepipeline.nativecode.Bitmaps {
+    *** nativeCopyBitmap(android.graphics.Bitmap,int,android.graphics.Bitmap,int,int);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder {
+    *** nativePinBitmap(android.graphics.Bitmap);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeAllocate(int);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeFree(long);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeCopyToByteArray(long,byte[],int,int);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeCopyFromByteArray(long,byte[],int,int);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeMemcpy(long,long,int);
+}
+-keep,includedescriptorclasses class com.facebook.imagepipeline.memory.NativeMemoryChunk {
+    *** nativeReadByte(long);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** maybeFlushUIUpdatesQueue();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** getAnimationTimestamp();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** requestRender(com.swmansion.reanimated.nativeProxy.AnimationFrameCallback);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.nativeProxy.NativeProxyCommon {
+    *** updateProps(int,java.util.Map);
+}
+-keep,includedescriptorclasses class com.facebook.jni.MapIteratorHelper {
+    *** hasNext();
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** progressLayoutAnimation(int,java.util.Map,boolean);
+}
+-keep,includedescriptorclasses class com.swmansion.reanimated.layoutReanimation.LayoutAnimations {
+    *** endLayoutAnimation(int,boolean);
+}
+-keepclassmembers class com.swmansion.rnscreens.ScreensShadowNode {
+    <methods>;
+}
